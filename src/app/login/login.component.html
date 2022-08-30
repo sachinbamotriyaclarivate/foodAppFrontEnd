@@ -1,0 +1,29 @@
+<div class="container">
+    <h3>Login</h3>
+
+    <form [formGroup]="login" (ngSubmit)="loginUser()">
+
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" aria-describedby="email" name="email"
+                formControlName="email">
+            <span *ngIf="email?.invalid && email?.touched" style="color: red;">Please Enter valid the email
+                address</span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" formControlName="password">
+            <span *ngIf="password?.invalid && password?.touched" style="color: red;">Please Enter valid the
+                password</span>
+        </div>
+        <div class="form-group">
+            <select (change)="onChange($event)" class="form-control select2" type="text" style="width: 100%;">
+                <option value="admin">Admin</option>
+                <option value="BranchManager">BranchManager</option>
+                <option value="Staff">Staff</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>

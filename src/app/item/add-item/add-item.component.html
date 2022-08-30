@@ -1,0 +1,40 @@
+<div class="container">
+    <h3>Add Item</h3>
+
+    <form [formGroup]="addItemForm" (ngSubmit)="addItem()">
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="name" class="form-control" id="name" aria-describedby="name" name="name"
+                formControlName="name">
+            <span *ngIf="name?.invalid && name?.touched" style="color: red;">Please Enter valid the Item Name</span>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="description" class="form-control" id="description" aria-describedby="description" name="description"
+                formControlName="description">
+            <span *ngIf="description?.invalid && description?.touched" style="color: red;">Please Enter valid the Description
+                description</span>
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="price" class="form-control" id="price" name="price" formControlName="price">
+            <span *ngIf="price?.invalid && price?.touched" style="color: red;">Please Enter valid the
+                price</span>
+        </div>
+        <div class="form-group">
+            <label for="type">Type</label>
+            <input type="type" class="form-control" id="type" name="type" formControlName="type">
+            <span *ngIf="type?.invalid && type?.touched" style="color: red;">Please Enter valid the
+                Type</span>
+        </div>
+        <div class="form-group">
+            <label for="menuId">Menu Id</label>
+            <input type="menuId" class="form-control" id="menuId" name="menuId" formControlName="menuId">
+            <span *ngIf="menuId?.invalid && menuId?.touched" style="color: red;">Please Enter valid the
+                Menu Id</span>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!addItemForm.valid"
+        >Add Item</button>
+    </form>
+</div>

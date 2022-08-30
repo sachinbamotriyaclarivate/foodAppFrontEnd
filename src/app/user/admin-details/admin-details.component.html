@@ -1,0 +1,29 @@
+<div class="container">
+    <h3>Admin Details</h3>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Admin Id</th>
+                <th scope="col">Admin Name</th>
+                <th scope="col">Admin Email</th>
+                <th scope="col">Admin Password</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let admin of admins.t ">
+
+                <td>{{admin.adminId}}</td>
+                <td>{{admin.name}}</td>
+                <td>{{admin.email}}</td>
+                <td>{{admin.password}}</td>
+                <td><button class="btn btn-warning" type="button"
+                        [routerLink]="['/edit-admin',admin.adminId]"    [disabled]="adminId!=admin.adminId"
+                        >Edit</button></td>
+                <td><button class="btn btn-danger" type="button" (click)="deleteAdmin(admin.adminId)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

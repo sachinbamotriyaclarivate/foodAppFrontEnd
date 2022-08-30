@@ -1,0 +1,42 @@
+<div class="container">
+    <h3>Staff Details</h3>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Staff Id</th>
+                <th scope="col">Staff Name</th>
+                <th scope="col">Staff Email</th>
+                <th scope="col">Staff Password</th>
+                <th scope="col">Branch Manager Id</th>
+                <th scope="col">Branch Manager Name</th>
+                <th scope="col">Branch Id</th>
+                <th scope="col">Branch Name</th>
+                <th scope="col">Admin Id</th>
+                <th scope="col">Admin Name</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let staff of staffs.t ">
+                <td>{{staff.staffId}}</td>
+                <td>{{staff.name}}</td>
+                <td>{{staff.email}}</td>
+                <td>{{staff.password}}</td>
+
+
+                <td>{{staff.branchManager.branchManagerId}}</td>
+                <td>{{staff.branchManager.name}}</td>
+                <td>{{staff.branchManager.branch.branchId}}</td>
+                <td>{{staff.branchManager.branch.name}}</td>
+                <td>{{staff.branchManager.branch.admin.adminId}}</td>
+                <td>{{staff.branchManager.branch.admin.name}}</td>
+                <td><button class="btn btn-warning" type="button"
+                        [routerLink]="['/edit-staff',staff.staffId]"   [disabled]="branchManagerId!=staff.branchManager.branchManagerId"
+                        >Edit</button></td>
+                <td><button class="btn btn-danger" type="button" (click)="deleteStaff(staff.staffId)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

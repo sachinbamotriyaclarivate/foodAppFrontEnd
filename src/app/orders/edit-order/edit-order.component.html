@@ -1,0 +1,58 @@
+<div class="container">
+    <h3>Update Item</h3>
+
+    <form [formGroup]="editOrderForm" (ngSubmit)="editOrder()">
+        <div class="form-group">
+            <label for="name">Customer Name</label>
+            <input type="name" class="form-control" id="customerName" aria-describedby="customerName"
+                name="customerName" formControlName="customerName" [(ngModel)]="selectedOrder.customerName">
+
+            <span *ngIf="customerName?.invalid && customerName?.touched" style="color: red;">Please Enter valid the
+                Customer Name</span>
+        </div>
+        <div class="form-group">
+            <label for="customerEmail">Customer Email</label>
+            <input type="customerEmail" class="form-control" id="customerEmail" aria-describedby="customerEmail"
+                name="customerEmail" formControlName="customerEmail" [(ngModel)]="selectedOrder.customerEmail">
+
+            <span *ngIf="customerEmail?.invalid && customerEmail?.touched" style="color: red;">Please Enter valid the
+                Email
+                address</span>
+        </div>
+        <div class="form-group">
+            <label for="customerPhoneNumber">Customer PhoneNumber</label>
+            <input type="customerPhoneNumber" class="form-control" id="customerPhoneNumber" name="customerPhoneNumber"
+                formControlName="customerPhoneNumber" [(ngModel)]="selectedOrder.customerPhoneNumber">
+            <span *ngIf="customerPhoneNumber?.invalid && customerPhoneNumber?.touched" style="color: red;">Please Enter
+                valid the
+                Customer Phone</span>
+        </div>
+
+        <div class="form-group">
+            <label for="status">Status</label>
+            <select class="form-control" id="status" name="status" formControlName="status" style="width: 100%;"
+                [(ngModel)]="selectedOrder.status">
+                <option value="pending">Pending</option>
+                <option value="Awaiting Payment">Awaiting Payment</option>
+                <option value="Awaiting Shipment">Awaiting Shipment</option>
+                <option value="Awaiting Pickup">Awaiting Pickup</option>
+                <option value="Shipped">Shipped</option>
+                <option value="Delivered">Delivered</option>
+            </select>
+            <span *ngIf="status?.invalid && status?.touched" style="color: red;">Please select the status
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="items">Items</label>
+            <ng-multiselect-dropdown id="items" name="items" formControlName="items" [settings]="dropdownSettings"
+            [(ngModel)]="selectedOrder.item"  [data]="dropdownList.t"   >
+            </ng-multiselect-dropdown>
+        </div>
+            <button type="submit" class="btn btn-primary"
+            [disabled]="!editOrderForm.valid"
+            >Update Order</button>
+       
+    </form>
+   
+</div>

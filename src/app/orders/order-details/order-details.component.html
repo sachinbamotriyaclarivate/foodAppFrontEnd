@@ -1,0 +1,36 @@
+<div class="container">
+    <h3>Order Details</h3>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"> Order Id</th>
+                <th scope="col"> Customer Name</th>
+                <th scope="col">Customer Email</th>
+                <th scope="col">Customer Number</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total Amount</th>
+                <th scope="col">Status</th>
+                <th scope="col">Staff Id</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders.t ">
+                <td>{{order.id}}</td>
+                <td>{{order.customerName}}</td>
+                <td>{{order.customerEmail}}</td>
+                <td>{{order.customerPhoneNumber}}</td>
+                <td>{{order.quantity}}</td>
+                
+                <td>{{order.totalAmount}}</td>
+                <td>{{order.status}}</td>
+                <td>{{order.staff.staffId}}</td>
+
+                <td><button class="btn btn-warning" type="button" [disabled]="staffId!=order.staff.staffId"
+                        [routerLink]="['/edit-order',order.id]">Edit</button></td>
+                <td><button class="btn btn-danger" type="button" (click)="deleteOrder(order.id)">Delete</button></td>
+            </tr>           
+        </tbody>
+    </table>
+</div>

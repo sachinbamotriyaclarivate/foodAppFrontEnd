@@ -102,5 +102,7 @@
       }
     }
   },
-  "defaultProject": "FoodApplication"
+  "cli": {
+    "analytics": "98fa8de5-098b-449d-9bd2-e8d4c3bb9d2d"
+  }
 }

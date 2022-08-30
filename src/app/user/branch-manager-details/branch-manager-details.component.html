@@ -1,0 +1,36 @@
+<div class="container">
+    <h3>Branch Manager Details</h3>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Branch Manager Id</th>
+                <th scope="col">Branch Manager Name</th>
+                <th scope="col">Branch Manager Email</th>
+                <th scope="col">Branch Manager Password</th>
+                <th scope="col">Branch Id</th>
+                <th scope="col">Branch Name</th>
+                <th scope="col">Admin Id</th>
+                <th scope="col">Admin Name</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let branchManager of branchManager.t ">
+                <td>{{branchManager.branchManagerId}}</td>
+                <td>{{branchManager.name}}</td>
+                <td>{{branchManager.email}}</td>
+                <td>{{branchManager.password}}</td>
+                <td>{{branchManager.branch.branchId}}</td>
+                <td>{{branchManager.branch.name}}</td>
+                <td>{{branchManager.branch.admin.adminId}}</td>
+                <td>{{branchManager.branch.admin.name}}</td>
+                <td><button class="btn btn-warning" type="button"
+                        [routerLink]="['/edit-branchManager',branchManager.branchManagerId]"   [disabled]="adminId!=branchManager.branch.admin.adminId"
+                        >Edit</button></td>
+                <td><button class="btn btn-danger" type="button" (click)="deleteBranchManager(branchManager.branchManagerId)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

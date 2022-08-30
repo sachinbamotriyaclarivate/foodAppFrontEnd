@@ -1,0 +1,32 @@
+<div class="container">
+    <h3>Branches Details</h3>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"> Branch Id</th>
+                <th scope="col"> Branch Name</th>
+                <th scope="col">Branch Email</th>
+                <th scope="col">Branch Phone Number</th>
+                <th scope="col">Admin Id</th>
+                <th scope="col">Admin Name</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let branch of branches.t ">
+                <td>{{branch.branchId}}</td>
+                <td>{{branch.name}}</td>
+                <td>{{branch.email}}</td>
+                <td>{{branch.phoneNumber}}</td>
+                <td>{{branch.admin.adminId}}</td>
+                <td>{{branch.admin.name}}</td>
+                <td><button class="btn btn-warning" type="button" [disabled]="adminId!=branch.admin.adminId"
+                        [routerLink]="['/edit-branch',branch.branchId]">Edit</button></td>
+
+                <td><button class="btn btn-danger" type="button" (click)="deleteBranch(branch.branchId)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

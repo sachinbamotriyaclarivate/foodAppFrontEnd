@@ -1,0 +1,38 @@
+<div class="container">
+    <h3>Update Item</h3>
+
+    <form [formGroup]="editItemForm" (ngSubmit)="editItem()">
+        <div class="form-group">
+            <label for="name">Item Name</label>
+            <input type="name" class="form-control" id="name" aria-describedby="name" name="name" formControlName="name"
+                [(ngModel)]="selectedItem.name">
+
+            <span *ngIf="name?.invalid && name?.touched" style="color: red;">Please Enter valid the User Name</span>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="description" class="form-control" id="description" aria-describedby="description"
+                name="description" formControlName="description" [(ngModel)]="selectedItem.description">
+
+            <span *ngIf="description?.invalid && description?.touched" style="color: red;">Please Enter valid the
+                description
+                address</span>
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="price" class="form-control" id="price" name="price" formControlName="price"
+                [(ngModel)]="selectedItem.price">
+            <span *ngIf="price?.invalid && price?.touched" style="color: red;">Please Enter valid the
+                Price</span>
+        </div>
+        <div class="form-group">
+            <label for="type">Type</label>
+            <input type="type" class="form-control" id="type" name="type" formControlName="type"
+                [(ngModel)]="selectedItem.type">
+            </div>
+            <button type="submit" class="btn btn-primary"
+            [disabled]="!editItemForm.valid"
+            >Update Item</button>
+    </form>
+</div>
