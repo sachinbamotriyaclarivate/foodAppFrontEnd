@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { ItemService } from 'src/app/services/item.service';
 import { OrderService } from 'src/app/services/order.service';
@@ -16,7 +17,7 @@ export class AddOrderComponent implements OnInit {
   dropdownList: any = [];
   dropdownSettings: IDropdownSettings = {};
 
-  constructor(private itemService: ItemService,private order:OrderService) { }
+  constructor(private itemService: ItemService,private order:OrderService,private router:Router) { }
 
   ngOnInit(): void {
     this.itemService.getAllItems().subscribe((data) => {
@@ -63,6 +64,8 @@ export class AddOrderComponent implements OnInit {
     
     this.order.addOrders(this.result).subscribe((data)=>{
       console.log(data);
+      this.router.navigate(['/order-details'])
+
       
     })
    

@@ -32,8 +32,4 @@ export class StaffService {
     alert(staffId);
     return this.http.put("http://localhost:8080/staff/"+staffId,staff);
    }
-
-   findByEmail(staff:any){
-    return this.http.get("http://localhost:8080/staffEmail",staff);
-   }
 }

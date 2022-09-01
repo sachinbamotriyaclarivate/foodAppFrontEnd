@@ -36,11 +36,7 @@ export class BranchManagerService {
       return false;
     }
    }
-   findByEmail(branchManager:any){
-    console.log(branchManager.email);
-    
-    return this.https.get("http://localhost:8080/branchManagerEmail",branchManager);
-   }
+
 }
 
 

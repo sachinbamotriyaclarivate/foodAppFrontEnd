@@ -12,11 +12,9 @@ import { StaffService } from '../services/staff.service';
 })
 export class AddUserComponent implements OnInit {  
   roleType: any;
-  userIdPattern:any="^[0-9]$";
+  userIdPattern:any="^[0-9]{1,15}$";
   unamePattern :any= "^[a-zA-Z ]{3,30}$";
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
-  pwdPattern="^[A-Za-z0-9]{4,15}$";
   constructor(private adminService:AdminServiceService,private branchManagerService:BranchManagerService,private staffService:StaffService,private route:Router) { }
   ngDoCheck(): void {
     this.roleType=this.selectedType
@@ -56,6 +54,7 @@ export class AddUserComponent implements OnInit {
 
     roleId:any;
     addUser(){
+      
       if(this.roleType=='BranchManager'){
        this.branchManagerService.addBranchManager(this.addUserForm.value).subscribe((data)=>{
         console.log(data);

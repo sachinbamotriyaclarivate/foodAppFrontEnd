@@ -31,8 +31,6 @@ export class AdminServiceService {
    updateAdmin(admin:any,adminId:any){
     return this.http.put("http://localhost:8080/admin/"+adminId,admin);
    }
-   findByEmail(admin:any){
-    return this.http.get("http://localhost:8080/adminEmail",admin);
-   }
+
 
 }

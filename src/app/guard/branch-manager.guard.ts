@@ -16,7 +16,7 @@ export class BranchManagerGuard implements CanActivate {
         return true;
       }
       else{
-        window.alert("Only For Admin")    
+        window.alert("Only For Branch Manager")    
         return false;
       }
   }

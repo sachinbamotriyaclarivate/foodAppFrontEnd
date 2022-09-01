@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { ItemService } from 'src/app/services/item.service';
+import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
   selector: 'app-add-item',
@@ -10,12 +12,22 @@ import { ItemService } from 'src/app/services/item.service';
 })
 export class AddItemComponent implements OnInit {
 
-  numberPattern:any="^[0-9]{0,30}$";
-  unamePattern :any= "^[a-zA-Z ]{3,30}$";
-  constructor(private itemService:ItemService,private route:Router) { }
+  dropdownList: any = [];
+  dropdownSettings: IDropdownSettings = {};
+
+  constructor(private itemService:ItemService,private route:Router,private menuService:MenuService) { }
 
   ngOnInit(): void {
+    this.menuService.getAllMenu().subscribe((data)=>{
+      this.dropdownList = data;
+      this.dropdownSettings = {
+        idField: 'menuId',
+        textField: 'menuId',
+      };
+    })
   }
+  numberPattern:any="^[0-9]{0,30}$";
+  unamePattern :any= "^[a-zA-Z ]{3,30}$";
 
   addItemForm = new FormGroup(
     {

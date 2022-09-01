@@ -35,15 +35,14 @@
             <label>Enter The Branch ID </label>
             <input class="form-control" id="role" name="role" formControlName="role" type="text" class="form-control"
                 id="id" placeholder="Enter Branch ID" required>
-                <span *ngIf="role?.invalid && role?.touched" style="color: red;">Please Enter valid the Branch ID</span>
+                <span *ngIf="role?.invalid " style="color: red;">Please Enter valid the Branch ID</span>
 
         </div>
         <div class="form-group" *ngIf="roleType =='Staff'">
             <label>Enter The Branch Manager ID </label>
-            <input class="form-control" id="role" name="role" formControlName="role" type="text" class="form-control" required
-                id="id" placeholder="Enter Branch-Manager ID">
-                <span *ngIf="role?.invalid && role?.touched" style="color: red;">Please Enter valid the Branch Manager ID</span>
-
+            <input class="form-control" id="role" name="role" formControlName="role" type="text" class="form-control" 
+                id="id" placeholder="Enter Branch-Manager ID" required>
+                <span *ngIf="role?.invalid " style="color: red;">Please Enter valid the Branch Manager ID</span>
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="!addUserForm.valid">Register</button>
     </form>

@@ -1,5 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,8 +9,9 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit ,DoCheck{
   isLoggedIn=false;
+ 
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private user:UserService) { }
   ngDoCheck(): void {
     this.isLoggedIn=localStorage.getItem('isLoggedIn')=='true'?true:false;
   }

@@ -8,6 +8,4 @@ import { IDropdownSettings } from 'ng-multiselect-dropdown';
 export class AppComponent {
   title = 'FoodApplication';
 
-
-
   }

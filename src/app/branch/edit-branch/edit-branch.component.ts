@@ -14,9 +14,9 @@ export class EditBranchComponent implements OnInit {
   unamePattern :any= "^[a-zA-Z ]{3,30}$";
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
   mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
-  selectedBranch:any
+  selectedBranch:any;
   error:any;
-  errormsg:any
+  errormsg:any;
   constructor(private route:ActivatedRoute,private branch:BranchService,private router:Router) { }
   result:any;
 

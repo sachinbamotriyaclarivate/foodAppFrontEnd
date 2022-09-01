@@ -46,7 +46,7 @@ const routes: Routes = [
   {path:"edit-branchManager/:branchManagerId",component:EditBranchManagerComponent},
   {path:"staff-details",component:StaffDetailsComponent,canActivate:[AuthenticatedGuard,StaffGuard]},
   {path:"admin-details",component:AdminDetailsComponent,canActivate:[AuthenticatedGuard,AdminGuard]},
-  {path:"order-details",component:OrderDetailsComponent},
+  {path:"order-details",component:OrderDetailsComponent,canActivate:[AuthenticatedGuard]},
   {path:"edit-order/:id",component:EditOrderComponent},
   {path:'edit-admin/:adminId',component:EditAdminComponent},
   {path:'edit-staff/:staffId',component:EditStaffComponent}

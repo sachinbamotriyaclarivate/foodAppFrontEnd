@@ -29,6 +29,8 @@ import { OrderDetailsComponent } from './orders/order-details/order-details.comp
 import { EditOrderComponent } from './orders/edit-order/edit-order.component';
 import { HomeComponent } from './home/home.component';
 import { EditAdminComponent } from './user/edit-admin/edit-admin.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -57,13 +59,16 @@ import { EditAdminComponent } from './user/edit-admin/edit-admin.component';
     EditAdminComponent
   ],
   imports: [
+    CommonModule,
     RouterModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    NgSelectModule
+
     
   ],
   providers: [],

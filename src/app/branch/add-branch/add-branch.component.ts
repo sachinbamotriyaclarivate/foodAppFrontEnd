@@ -16,8 +16,6 @@ export class AddBranchComponent implements OnInit {
   unamePattern :any= "^[a-zA-Z ]{3,30}$";
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
   mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
-  pwdPattern="^[A-Za-z0-9]{4,15}$";
-
 
   constructor(private branchService: BranchService,private route:Router) { }
   ngOnInit(): void {
@@ -38,7 +36,6 @@ export class AddBranchComponent implements OnInit {
   get phoneNumber() {
     return this.addBranchForm.get("phoneNumber");
   }
-
   addBranch() {
     this.branchService.addBranch(this.addBranchForm.value).subscribe((data) => {
       console.log(data);
@@ -47,5 +44,3 @@ export class AddBranchComponent implements OnInit {
     })
   }
 }
-
-
